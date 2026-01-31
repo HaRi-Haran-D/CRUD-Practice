@@ -28,6 +28,9 @@
                     <td>{{ items.name }}</td>
                     <td>{{ items.dob }}</td>
                     <td>{{ items.phone_no }}</td>
+                    <td>
+                        <a href="{% url 'update_list' items.id %}">Update</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

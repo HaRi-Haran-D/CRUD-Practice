@@ -20,3 +20,23 @@ def home(request):
 def list_items(request):
     list = Student.objects.all()
     return render(request, 'stud_list.html', {'lists': list})
+
+# def update_list(request,item_id):
+#     items = Student.objects.get(id=item_id)
+#     if request.method == 'POST':
+#         form = StudentForm(request.POST, instance=items)
+#         form.save()
+#         return redirect('list_items')
+#     return render(request,'update_list.html', {'form':form})
+
+def update_list(request, item_id):
+    items = Student.objects.get(id=item_id)
+    form = StudentForm(instance=items)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=items)
+        if form.is_valid():
+            form.save()
+            return redirect('list_items')
+    return render(request, 'update_list.html', {'form': form})
+
+        
