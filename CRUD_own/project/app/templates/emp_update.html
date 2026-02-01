@@ -6,16 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
+    <div>
         <form action="" method="post">
             {% csrf_token %}
             {% for item in form %}
             <label for="">{{ item.label_tag }}</label>
             <p>{{ item }}</p>
             {% endfor %}
-            <button type="submit">Save</button>
+            <button type="submit">Update</button>
+            <a href="{% url 'home' %}">Back to Home</a>
         </form>
-        <a href="{% url 'list' %}">Employees</a>
-    </main>
+    </div>
 </body>
 </html>

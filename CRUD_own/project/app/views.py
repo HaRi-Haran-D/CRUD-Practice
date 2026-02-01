@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from .models import Company
 from .forms import CompanyForm
@@ -19,4 +20,24 @@ def home(request):
 
 def emp_list(request):
     list = Company.objects.all()
-    return(request, 'emp_list.html', {'list':list})
+    return render(request, 'emp_list.html', {'list':list})
+
+
+def update_list(request, item_id):
+    item = Company.objects.get(id=item_id)
+    form = CompanyForm(instance=item)
+    if request.method == "POST":
+        form = CompanyForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('list')
+    return render(request, 'emp_update.html', {'form': form})
+
+
+def delete_list(request, item_id):
+    emp = get_object_or_404(Company, id=item_id)
+    if request.method == "POST":
+        emp.delete()
+        return redirect("list")
+    return redirect("list")
+

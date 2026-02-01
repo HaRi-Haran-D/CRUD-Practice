@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Emp_id</th>
+                    <th>Emp_name</th>
+                    <th>Occupation</th>
+                    <th>Salary</th>
+                    <th>Joining date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ item.emp_id }}</td>
+                    <td>{{ item.emp_name }}</td>
+                    <td>{{ item.occupation }}</td>
+                    <td>{{ item.salary }}</td>
+                    <td>{{ item.joining_date }}</td>
+                    <td>
+                        <a href="{% url 'update' item.id %}">Update</a>
+                    </td>
+                    <td>
+                        <form action="{% url 'delete' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
