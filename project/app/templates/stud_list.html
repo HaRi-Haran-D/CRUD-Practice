@@ -29,14 +29,21 @@
                     <td>{{ items.dob }}</td>
                     <td>{{ items.phone_no }}</td>
                     <td>
-                        <a href="{% url 'update_list' items.id %}">Update</a>
+                        <a href="{% url 'update_list' items.id %}" class="btn btn-outline-secondary">Update</a>
+                    </td>
+                    <td>
+                        <form action="{% url 'delete_list' items.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        
-        <p>{{ items }}</p>
+        <div>
+            <a href="{% url 'home' %}" class="btn btn-outline-secondary">Back to Home</a>
+        </div>
         
     </div>
 </body>
