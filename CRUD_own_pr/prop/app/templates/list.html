@@ -24,9 +24,18 @@
                 <td>{{ lists.name }}</td>
                 <td>{{ lists.age }}</td>
                 <td>{{ lists.mark }}</td>
+                <td>
+                    <a href="{% url 'update' lists.id %}">Update</a>
+                </td>
+                <td>
+                    <form action="{% url 'delete' item.id %}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <a href="{% url 'home' %}">Home</a>
 </body>
 </html>
