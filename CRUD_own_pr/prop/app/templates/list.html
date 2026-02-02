@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Std_Id</th>
+                <th>Std Name</th>
+                <th>Age</th>
+                <th>Mark</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lists in list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ lists.std_id }}</td>
+                <td>{{ lists.name }}</td>
+                <td>{{ lists.age }}</td>
+                <td>{{ lists.mark }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
