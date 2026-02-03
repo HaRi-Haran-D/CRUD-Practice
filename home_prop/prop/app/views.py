@@ -17,3 +17,9 @@ def register(request):
     else:
         form=UserForm()
     return render(request, 'register.html', {'form':form})
+
+
+def list(request):
+    list = User.objects.all()
+    return render(request, 'list.html', {'list':list})
+

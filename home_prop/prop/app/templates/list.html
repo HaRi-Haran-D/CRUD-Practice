@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ n.username }}</td>
+                    <td>{{ n.email }}</td>
+                    <td>{{ n.password }}</td>
+                    <td>{{ n.age }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
