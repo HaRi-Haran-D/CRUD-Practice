@@ -7,16 +7,19 @@
 </head>
 <body>
     <div>
-        <h2>Register</h2>
-        <form action="" method="post">
+        <h2>Login Page</h2>
+        <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
         </form>
-        <p>I do have an account! <a href="{% url 'login' %}">Login</a></p>
+        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
         <div>
             <a href="{% url 'home' %}">Home</a>
         </div>
+        {% if error %}
+        <p style="color:red;">{{ error }}</p>
+        {% endif %}
     </div>
 </body>
 </html>
