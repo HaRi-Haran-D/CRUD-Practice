@@ -7,14 +7,18 @@
 </head>
 <body>
     <main>
-        <h2>Welcome</h2>
         <div>
-            <a href="{% url 'register' %}">Register</a>
+            {% if user %}
+                <h2>Welcome {{ user.username }}</h2>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
         </div>
         <div>
             <a href="{% url 'list' %}">List</a>
         </div>
-        
     </main>
 </body>
 </html>

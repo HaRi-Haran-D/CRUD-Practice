@@ -12,6 +12,12 @@
             {{ form.as_p}}
             <button type="submit">Submit</button>
         </form>
+        <div>
+            <p>Already have an Account. <a href="{% url 'login' %}">Login</a></p>
+        </div>
+        <div>
+            <a href="{% url 'home' %}">Back to Home</a>
+        </div>
     </section>
 </body>
 </html>
