@@ -15,7 +15,6 @@ def home(request):
         form = StudentForm()
     return render(request, 'base.html', {'form':form})
 
-
 def list(request):
     list = Student.objects.all()
     return render(request, 'list.html', {'list':list})
@@ -37,3 +36,4 @@ def delete(request, item_id):
         std.delete()
         return redirect('list')
     return redirect('list')
+ 
