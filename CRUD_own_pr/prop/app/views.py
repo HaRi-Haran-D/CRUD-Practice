@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from .forms import StudentForm
 from .models import Student
 
-# Create your views here. 
+# Create your views here.
 def home(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
@@ -14,6 +14,7 @@ def home(request):
     else:
         form = StudentForm()
     return render(request, 'base.html', {'form':form})
+
 
 def list(request):
     list = Student.objects.all()
@@ -30,10 +31,10 @@ def update(request,item_id):
             return redirect('list')
     return render(request, 'update.html', {'form':form})
 
+
 def delete(request, item_id):
     std = get_object_or_404(Student, id=item_id)
     if request.method == 'POST':
         std.delete()
         return redirect('list')
     return redirect('list')
- 
