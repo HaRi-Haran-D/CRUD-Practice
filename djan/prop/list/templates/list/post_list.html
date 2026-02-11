@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+    <article>
+        <p>{{ post.slug }}</p>
+        <p>{{ post.date }}</p>
+        <p>{{ post.body }}</p>
+    </article>
+    <a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}

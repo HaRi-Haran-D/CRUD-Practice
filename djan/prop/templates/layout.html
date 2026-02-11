@@ -10,9 +10,9 @@
 </head>
 <body>
     <nav>
-        <a href="/">Home</a> | 
-        <a href="/about">About</a> | 
-        <a href="/list">List</a>
+        <a href="{% url 'home' %}">Home</a> | 
+        <a href="{% url 'about' %}">About</a> | 
+        <a href="{% url 'list:post' %}">List</a>
     </nav>
     <main>
         {% block content %}

@@ -1,7 +1,13 @@
 {% extends 'layout.html' %}
 {% block title %}List{% endblock %}
 {% block content %}
-    <h1>Hello World !!!</h1>
     <h2>Lists</h2>
-    <a href="/">Back to Home</a>
+    <article>
+        {% for list in lists %}
+        <a href="{% url 'list:post_list' list.slug %}"><p>{{ list.title }}</p></a>
+        <p>{{ list.date }}</p>
+        <p>{{ list.body }}</p>
+        {% endfor %}
+    </article>
+    <a href="{% url 'home' %}">Back to Home</a>
 {% endblock %}
