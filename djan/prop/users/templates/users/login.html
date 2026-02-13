@@ -5,7 +5,7 @@
 {% block content %}
     <section style="padding: 10px">
         <h1>Login Form</h1>
-        <form action="" class='form-with-validation' method='post'>
+        <form action="{% url 'users:login' %}" class='form-with-validation' method='post'>
             {% csrf_token %}
             {{ form.as_p }}
             {% if request.GET.next %}
