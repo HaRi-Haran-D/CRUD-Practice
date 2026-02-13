@@ -3,6 +3,19 @@
 {% block content %}
     <section>
         <h1>New Post</h1>
+        <form action="{% url 'list:new-post' %}" method="post">
+            {% csrf_token %}
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            <table>
+                {% for i in form %}
+                <tr>
+                    <td>{{ i.label_tag }}</td>
+                    <td>{{ i }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button type="submit" class="form-submit">Submit</button>
+        </form>
         <a href="{% url 'home' %}">Back to Home</a>
     </section>
 {% endblock %}

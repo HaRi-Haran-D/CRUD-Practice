@@ -5,7 +5,7 @@
         <h1>{{ post.title }}</h1>
         <img src="{{ post.banner.url }}" alt="banner" class="banner" width='500' />
         <p>{{ post.slug }}</p>
-        <p>{{ post.date }}</p>
+        <p>{{ post.date }} by {{ post.author }}</p>
         <p>{{ post.body }}</p>
     </article>
     <a href="{% url 'home' %}">Back to Home</a>
