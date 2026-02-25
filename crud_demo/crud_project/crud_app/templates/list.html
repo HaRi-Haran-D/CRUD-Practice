@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>Student List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>S.No</td>
+                    <td>Name</td>
+                    <td>Class</td>
+                    <td>Address</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in list %}
+                <tr>
+                    <td>{{ i.sno }}</td>
+                    <td>{{ i.sname }}</td>
+                    <td>{{ i.sclass }}</td>
+                    <td>{{ i.saddress }}</td>
+                    <td><a href="{% url 'update' i.id %}">Update</a></td>
+                    <td>
+                        <form action="{% url 'delete' i.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+</body>
+</html>

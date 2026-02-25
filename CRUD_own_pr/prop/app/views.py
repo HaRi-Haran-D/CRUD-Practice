@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from .forms import StudentForm
 from .models import Student
 
+
 # Create your views here.
 def home(request):
     if request.method == 'POST':
