@@ -6,14 +6,19 @@ from .models import Student
 
 # Create your views here.
 def home(request):
-    if request.method == 'POST':
-        form = StudentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            form = StudentForm()
-            return redirect('home')
-    else:
-        form = StudentForm()
+    # if request.method == 'POST':
+    #     form = StudentForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         form = StudentForm()
+    #         return redirect('home')
+    # else:
+    #     form = StudentForm()
+    # return render(request, 'base.html', {'form':form})
+    form = StudentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('list')
     return render(request, 'base.html', {'form':form})
 
 
@@ -23,14 +28,20 @@ def list(request):
 
 
 def update(request,item_id):
+    # item = Student.objects.get(id=item_id)
+    # form = StudentForm(instance=item)
+    # if request.method == 'POST':
+    #     form = StudentForm(request.POST, instance=item)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('list')
+    # return render(request, 'update.html', {'form':form})
     item = Student.objects.get(id=item_id)
-    form = StudentForm(instance=item)
-    if request.method == 'POST':
-        form = StudentForm(request.POST, instance=item)
-        if form.is_valid():
-            form.save()
-            return redirect('list')
-    return render(request, 'update.html', {'form':form})
+    form = StudentForm(request.POST or None, instance=item)
+    if form.is_valid():
+        form.save()
+        return redirect('list')
+    return render(request, 'base.html', {'form':form})
 
 
 def delete(request, item_id):
