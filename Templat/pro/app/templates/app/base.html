@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Items</h1>
+    {% for item in items %}
+    <p><b>{{ item.name }}</b></p>
+    <span><b>{{ item.price }}</b></span> | 
+    <span><b>{{ item.descri }}</b></span>
+    {% endfor %}
+</body>
+</html>
