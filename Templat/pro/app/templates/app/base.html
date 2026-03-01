@@ -1,16 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>Items</h1>
-    {% for item in items %}
-    <p><b>{{ item.name }}</b></p>
-    <span><b>{{ item.price }}</b></span> | 
-    <span><b>{{ item.descri }}</b></span>
-    {% endfor %}
+    <nav class="bg-lime-200">
+        <div class="flex justify-between px-4 py-2">
+            <a href="#" class="font-bold text-2xl">Practice</a>
+            <div class="space-x-6">
+                <a href="">Contact</a>
+                <a href="">Address</a>
+                <a href="">About Us</a>
+            </div>
+        </div>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
