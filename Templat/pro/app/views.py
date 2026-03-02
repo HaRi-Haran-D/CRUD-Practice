@@ -15,7 +15,7 @@ def create(request):
     form = ItemForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('app:home')
     return render(request, 'app/form.html', {'form':form})
 
 def update(request, id):
@@ -23,12 +23,12 @@ def update(request, id):
     form = ItemForm(request.POST or None, instance=item)
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('app:home')
     return render(request, 'app/form.html', {'form':form})
 
 def delete(request, id):
     item = get_object_or_404(Item, id=id)
     if request.method == 'POST':
         item.delete()
-        return redirect('home')
-    return redirect('home')
+        return redirect('app:home')
+    return render(request, 'app/delete.html')

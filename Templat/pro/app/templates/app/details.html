@@ -11,10 +11,12 @@
     </div>
     <div>
         <a class="bg-gray-500 px-2 py-1 rounded-md text-white" href="{% url 'app:update' items.id %}">Edit</a>
-        <form action="{% url 'app:delete' items.id %}">
+        <a class="bg-red-500 px-2 py-1 rounded-md text-white" href="{% url 'app:delete' items.id %}">Delete</a>
+
+        {% comment %} <form action="{% url 'app:delete' items.id %}">
             {% csrf_token %}
             <button class="bg-red-500 px-2 py-1 rounded-md text-white" type="submit">Delete</button>
-        </form>
+        </form> {% endcomment %}
     </div>
 </div>
 <div>
