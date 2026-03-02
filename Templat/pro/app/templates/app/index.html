@@ -1,9 +1,20 @@
 {% extends 'app/base.html' %}
 {% block content %}
-    <h1>Items</h1>
+<div class="">
     {% for item in items %}
-    <a href="{% url 'myapp:detail' item.id %}">
-        <p>{{ item.name }}</p>
-    </a>
+        <div class="m-10 flex mx-auto w-1/2 border-1 p-3">
+            <div>
+                <img class="w-40 rounded-lg" src="{{ item.image }}" alt="">
+            </div>
+            <div class="mx-10">
+                <p class="font-bold">{{ item.name }}</p>
+                <p>{{ item.descri }}</p>
+                <p class="text-amber-400 font-bold">$ {{ item.price }}</p>
+            </div>
+            <div class="my-3">
+                <a class="bg-gray-200 font-bold px-3 py-2 rounded-md" href="{% url 'app:detail' item.id %}">View Details</a>
+            </div>
+        </div>
     {% endfor %}
+</div>
 {% endblock %}

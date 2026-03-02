@@ -1,8 +1,23 @@
 {% extends 'app/base.html' %}
 {% block content %}
-    <h1>Detailed View</h1>
-    <h2>{{ items.name }}</h2>
-    <img src="{{ items.image }}" alt="" width="200" height="200">
-    <span><b>{{ items.price }}</b></span> | 
-    <span><b>{{ items.descri }}</b></span>
+<div class="flex m-10">
+    <div>
+        <img class="w-70 rounded-lg" src="{{ items.image }}" alt="">
+    </div>
+    <div class="mx-16">
+        <h2 class="font-bold text-3xl">{{ items.name }}</h2>
+        <p class="text-amber-400 font-bold text-2xl">$ {{ items.price }}</p>
+        <p>{{ items.descri }}</p>
+    </div>
+    <div>
+        <a class="bg-gray-500 px-2 py-1 rounded-md text-white" href="{% url 'app:update' items.id %}">Edit</a>
+        <form action="{% url 'app:delete' items.id %}">
+            {% csrf_token %}
+            <button class="bg-red-500 px-2 py-1 rounded-md text-white" type="submit">Delete</button>
+        </form>
+    </div>
+</div>
+<div>
+    <a class="bg-blue-500 px-2 py-1 rounded-md text-white" href="{% url 'app:home' %}">Back to Home</a>
+</div>
 {% endblock %}
