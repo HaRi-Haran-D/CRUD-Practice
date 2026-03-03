@@ -7,9 +7,11 @@ def home(request):
     items = Item.objects.all()
     return render(request, 'app/index.html', {'items':items})
 
+
 def detail(request, id):
     items = Item.objects.get(id=id)
     return render(request, 'app/details.html', {'items':items})
+
 
 def create(request):
     form = ItemForm(request.POST or None)
@@ -18,6 +20,7 @@ def create(request):
         return redirect('app:home')
     return render(request, 'app/form.html', {'form':form})
 
+
 def update(request, id):
     item = Item.objects.get(id=id)
     form = ItemForm(request.POST or None, instance=item)
@@ -25,6 +28,7 @@ def update(request, id):
         form.save()
         return redirect('app:home')
     return render(request, 'app/form.html', {'form':form})
+
 
 def delete(request, id):
     item = get_object_or_404(Item, id=id)
