@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<table>
+    <thead>
+        <th>
+            <td>S.No</td>
+            <td>Name</td>
+            <td>Age</td>
+        </th>
+    </thead>
+    <tbody>
+        {% for item in list %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.age }}</td>
+            <td>
+                <a href="{% url 'app:updateform' item.id %}">Update</a>
+            </td>
+            <td>
+                <form action="{% url 'app:deleteitem' item.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>  
+{% endblock %}
