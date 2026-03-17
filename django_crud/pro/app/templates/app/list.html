@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <div>
+        <table>
+            <thead>
+                <th>
+                    <td>S.no</td>
+                    <td>Name</td>
+                    <td>Age</td>
+                </th>
+            </thead>
+            <tbody>
+                {% for item in list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.age }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

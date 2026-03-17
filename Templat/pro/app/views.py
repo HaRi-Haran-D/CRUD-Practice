@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Item
 from .forms import ItemForm
 
 # Create your views here.
+@login_required
 def home(request):
     items = Item.objects.all()
     return render(request, 'app/index.html', {'items':items})
