@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <div class="container w-25 border border-secondary bg-light p-4 mt-4 text-center rounded">
+            <form action="" method="post" class="w-100 mb-2 text-center small-textarea">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="d-flex mb-3 align-items-center">
+                    <label class="" style="max-width:80px;">{{ field.label_tag }}</label>
+                    <div class="flex-grow-1">
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-secondary">Save</button>
+            </form>
+            <a href="{% url 'list_items' %}" class="btn btn-secondary px-3">List</a>
+        </div>
+    </main>
+{% endblock %}

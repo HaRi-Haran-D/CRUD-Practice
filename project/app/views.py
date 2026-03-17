@@ -15,7 +15,7 @@ def home(request):
             return redirect('home')
     else:
         form = StudentForm()  # GET request form
-    return render(request, 'base.html', {'form': form})
+    return render(request, 'home.html', {'form': form})
 
 
 def list_items(request):
@@ -37,6 +37,7 @@ def update_list(request, item_id):
         form = StudentForm(request.POST, instance=items)
         if form.is_valid():
             form.save()
+            messages.success(request, "Record has been Updated")
             return redirect('list_items')
     return render(request, 'update_list.html', {'form': form})
 
