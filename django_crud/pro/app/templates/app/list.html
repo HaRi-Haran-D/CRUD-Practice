@@ -1,21 +1,27 @@
 {% extends 'app/base.html' %}
+{% block title %}List{% endblock %}
 {% block content %}
-    <div>
-        <table>
+    <div class="mx-5">
+        <table class="bg-lime-50 w-full border-separate border-spacing-2 border border-gray-400 dark:border-gray-500 rounded-xs">
             <thead>
-                <th>
-                    <td>S.no</td>
-                    <td>Name</td>
-                    <td>Age</td>
-                </th>
+                <tr>
+                    <th class="border border-gray-300 dark:border-gray-600 rounded-xs">S.no</th>
+                    <th class="border border-gray-300 dark:border-gray-600 rounded-xs">Name</th>
+                    <th class="border border-gray-300 dark:border-gray-600 rounded-xs">Age</th>
+                    <th class="border border-gray-300 dark:border-gray-600 rounded-xs">Image</th>
+                </tr>
             </thead>
             <tbody>
                 {% for item in list %}
                 <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.age }}</td>
+                    <td class="border border-gray-300 dark:border-gray-600 rounded-xs">{{ forloop.counter }}</td>
+                    <td class="border border-gray-300 dark:border-gray-600 rounded-xs">{{ item.name }}</td>
+                    <td class="border border-gray-300 dark:border-gray-600 rounded-xs">{{ item.age }}</td>
+                    <td class="border border-gray-300 dark:border-gray-600 rounded-xs">
+                        <img src="{{ item.image }}" alt="">
+                    </td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

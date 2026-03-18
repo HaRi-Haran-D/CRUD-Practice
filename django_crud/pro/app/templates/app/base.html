@@ -3,34 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            margin: 0px;
-        }
-
-        .nav-bar {
-            display: flex;
-            justify-content: space-between;
-            background-color: gray;
-            height: 30px;
-            padding: 15px
-        }
-
-        .nav-bar h2 {
-            margin: 0px;
-        }
-    </style>
+    <title>Shop | {% block title %}{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <nav class="nav-bar">
-        <div>
-            <h2>Title</h2>
-        </div>
-        <div>
-            <a href="">Home</a>
-            <a href="">Contact</a>
-            <a href="">About</a>
+    <nav class="bg-emerald-50 basis-full text-cyan-800">
+        <div class="flex justify-between px-4 py-2">
+            <div class="text-2xl">
+                <h2>Shop</h2>
+            </div>
+            <div class="space-x-3">
+                <a href="">Home</a>
+                <a href="">Contact</a>
+                <a href="">About</a>
+            </div>
         </div>
     </nav>
     {% if messages %}

@@ -1,9 +1,32 @@
 {% extends 'app/base.html' %}
+{% block title %}Home{% endblock %}
 {% block content %}
-    <h1>Form</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Save</button>
-    </form>
+<div class="max-w-md mx-auto mt-10 px-4">
+
+        <div class="bg-white shadow-lg rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6 text-gray-700">
+                Create Profile
+            </h2>
+            <form method="POST" class="space-y-4">
+                {% csrf_token %}
+                <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Name</label>
+                    {{ form.name }}
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Age</label>
+                    {{ form.age }}
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Image URL</label>
+                    {{ form.image }}
+                </div>
+                <button type="submit"
+                    class="w-50 bg-gray-500 block m-auto text-white py-2 rounded-lg hover:bg-gray-600 transition">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
 {% endblock %}
