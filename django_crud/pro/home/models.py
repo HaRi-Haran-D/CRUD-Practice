@@ -11,3 +11,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default='profilepic.jpg', upload_to='profile_pictures')
+    dob = models.DateField(blank=False)
+
+    def __str__(self):
+        return self.user.username
