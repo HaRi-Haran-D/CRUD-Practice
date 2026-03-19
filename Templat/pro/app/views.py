@@ -9,6 +9,9 @@ def home(request):
     items = Item.objects.all()
     return render(request, 'app/index.html', {'items':items})
 
+# class IndexClassView():
+     
+
 
 def detail(request, id):
     items = Item.objects.get(id=id)
