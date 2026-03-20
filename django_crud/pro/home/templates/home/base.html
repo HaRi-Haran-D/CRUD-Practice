@@ -53,18 +53,19 @@
 <body class="bg-gray-100">
     <nav class="bg-white shadow-md">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <h2 class="text-2xl font-bold text-indigo-600">
-                Blog
+            <h2 class="text-2xl font-bold text-gray-600">
+                <a href="{% url 'home:index' %}" class="hover:text-gray-600 transition">Blog</a>
             </h2>
-            <div class="hidden md:flex space-x-6 text-gray-600 font-medium">
-                <a href="#" class="hover:text-indigo-500 transition">Home</a>
-                <a href="#" class="hover:text-indigo-500 transition">Contact</a>
-                <a href="#" class="hover:text-indigo-500 transition">About</a>
+
+            <div class="hidden md:flex space-x-6 text-gray-500 font-medium">
+                <a href="{% url 'home:index' %}" class="hover:text-gray-600 transition">Home</a>
+                <a href="{% url 'home:create' %}" class="hover:text-gray-600 transition">Add Post</a>
+                {% comment %} <a href="#" class="hover:text-gray-500 transition">About</a> {% endcomment %}
             </div>
             <div class="flex items-center space-x-4">
                 {% if user.is_authenticated %}
                     <span class="text-gray-700 font-medium">Hi, {{ user.username }}</span>
-                    <a href="#" class="bg-red-500 text-white px-4 py-1.5 rounded-lg hover:bg-red-600 transition text-sm">Logout</a>
+                    <a href="{% url 'users:logout' %}" class="bg-red-500 text-white px-4 py-1.5 rounded-lg hover:bg-red-600 transition text-sm">Logout</a>
                 {% else %}
                     <a href="{% url 'users:register' %}" class="bg-indigo-500 text-white px-4 py-1.5 rounded-lg hover:bg-indigo-600 transition text-sm">Signup</a>
                 {% endif %}
@@ -84,6 +85,5 @@
         {% block content %}
         {% endblock %}
     </main>
-
 </body>
 </html>
