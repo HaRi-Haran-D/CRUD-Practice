@@ -16,13 +16,21 @@ def create(request):
         return redirect('home:index')
     return render(request, 'home/create.html', {'form':form})
 
+
 @login_required
 def index(request):
     post = Post.objects.all()
     return render(request, 'home/index.html',{'posts':post})
+
 
 def profile_view(request, username):
     user = get_object_or_404(User, username=username)
     post = Post.objects.filter(name=user)
     return render(request, 'home/profile.html', {'posts':post})
     
+
+def userprofile(request, username):
+    user = get_object_or_404(User, username=username)
+    post = Post.objects.filter(name=user)
+    profile = Profile.objects.get(user=user)
+    return render(request, 'home/userprofile.html', {'posts':post})

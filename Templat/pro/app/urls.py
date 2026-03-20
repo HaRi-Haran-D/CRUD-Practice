@@ -3,9 +3,9 @@ from . import views
 
 app_name = 'app'
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('<int:id>/', views.detail, name='detail'),
-    path('create/', views.create, name='create'),
-    path('<int:id>/update/', views.update, name='update'),
-    path('<int:id>/delete/', views.delete, name='delete')
+    path('', views.IndexClassView.as_view(), name='home'),
+    path('<int:pk>/', views.FoodDetailView.as_view(), name='detail'),
+    path('create/', views.ItemCreateView.as_view(), name='create'),
+    path('update/<int:pk>/', views.ItemUpdateView.as_view(), name='update'),
+    path('delete/<int:pk>/', views.ItemDeleteView.as_view(), name='delete'),
 ]

@@ -64,7 +64,9 @@
             </div>
             <div class="flex items-center space-x-4">
                 {% if user.is_authenticated %}
-                    <span class="text-gray-700 font-medium">Hi, {{ user.username }}</span>
+                    <span class="text-gray-700 font-medium">Hi, 
+                        <a href="{% url 'home:userprofile' user.username %}">{{ user.username }}</a>
+                    </span>
                     <a href="{% url 'users:logout' %}" class="bg-red-500 text-white px-4 py-1.5 rounded-lg hover:bg-red-600 transition text-sm">Logout</a>
                 {% else %}
                     <a href="{% url 'users:register' %}" class="bg-indigo-500 text-white px-4 py-1.5 rounded-lg hover:bg-indigo-600 transition text-sm">Signup</a>
