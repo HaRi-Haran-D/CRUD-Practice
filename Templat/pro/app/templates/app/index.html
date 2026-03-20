@@ -3,17 +3,18 @@
 
 <div class="">
     {% for item in items %}
-        <div class="m-10 flex mx-auto w-1/2 border-1 p-3">
+        <div class="m-10 h-48 flex mx-auto w-1/2 border-1 rounded-sm p-3">
             <div>
-                <img class="w-40 rounded-lg" src="{{ item.image }}" alt="">
+                <img class="w-50 h-full rounded-lg" src="{{ item.image }}" alt="">
             </div>
             <div class="mx-10">
+                <h2 class="font-extrabold text-lg">{{ item.user_name }}</h2>
                 <p class="font-bold">{{ item.name }}</p>
                 <p>{{ item.descri }}</p>
                 <p class="text-amber-400 font-bold">$ {{ item.price }}</p>
             </div>
             <div class="my-3">
-                <a class="bg-gray-200 font-bold px-3 py-2 rounded-md" href="{% url 'app:detail' item.id %}">View Details</a>
+                <a class="bg-gray-400 text-white font-bold px-3 py-2 rounded-md hover:bg-gray-500" href="{% url 'app:detail' item.id %}">View Details</a>
             </div>
         </div>
     {% endfor %}
