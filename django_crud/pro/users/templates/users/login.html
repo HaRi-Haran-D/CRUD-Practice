@@ -1,0 +1,20 @@
+{% extends 'users/base.html' %}
+{% block title %}Signin{% endblock %}
+{% block content %}
+    <div class="max-w-sm mx-auto mt-8 px-4">
+        <div class="bg-white shadow-md rounded-xl p-6">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Sign In</h2>
+            <form method="post" class="space-y-4">
+                {% csrf_token %}
+                <div class="space-y-3">
+                    {{ form }}
+                </div>
+                <button type="submit" class="w-auto block mx-auto bg-gray-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-gray-600 transition duration-300">Submit</button>
+            </form>
+            <p class="text-sm text-gray-500 text-center mt-4">
+                Don't have an account?
+                <a href="{% url 'users:register' %}" class="text-indigo-500 hover:underline">SignUp</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

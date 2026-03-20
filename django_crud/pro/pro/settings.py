@@ -122,7 +122,7 @@ STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = 'home:index'
 
-LOGIN_URL = 'users:register'
+LOGIN_URL = 'users:login'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
 

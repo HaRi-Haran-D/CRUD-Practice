@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,9 +17,16 @@
                 <a href="">Contact</a>
                 <a href="">About</a>
             </div>
-            <div>
-                <a href="{% url 'users:register' %}">Sigup</a>
-            </div>
+            {% if user.is_authenticated %}
+                <div>
+                    <a href="">{{ user.username }}</a>
+                    <a href="">Logout</a>
+                </div>
+            {% else %}
+                <div>
+                    <a href="{% url 'users:register' %}">Sigup</a>
+                </div>
+            {% endif %}
         </div>
     </nav>
     {% if messages %}
@@ -32,5 +39,51 @@
 
     {% block content %}
     {% endblock %}
+</body>
+</html> {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | {% block title %}{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <h2 class="text-2xl font-bold text-indigo-600">
+                Blog
+            </h2>
+            <div class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                <a href="#" class="hover:text-indigo-500 transition">Home</a>
+                <a href="#" class="hover:text-indigo-500 transition">Contact</a>
+                <a href="#" class="hover:text-indigo-500 transition">About</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                {% if user.is_authenticated %}
+                    <span class="text-gray-700 font-medium">Hi, {{ user.username }}</span>
+                    <a href="#" class="bg-red-500 text-white px-4 py-1.5 rounded-lg hover:bg-red-600 transition text-sm">Logout</a>
+                {% else %}
+                    <a href="{% url 'users:register' %}" class="bg-indigo-500 text-white px-4 py-1.5 rounded-lg hover:bg-indigo-600 transition text-sm">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    {% if messages %}
+        <div class="max-w-4xl mx-auto mt-4 px-4 space-y-2">
+            {% for message in messages %}
+                <div class="bg-green-100 text-green-700 px-4 py-2 rounded-lg shadow-sm">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <main class="max-w-6xl mx-auto mt-1 px-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
 </body>
 </html>
