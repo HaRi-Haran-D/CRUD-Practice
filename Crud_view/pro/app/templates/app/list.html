@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Occupation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in lists %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ list.name }}</td>
+                    <td>{{ list.age }}</td>
+                    <td>{{ list.occup }}</td>
+                    <td><a href="{% url 'app:detail' list.id %}">Details</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

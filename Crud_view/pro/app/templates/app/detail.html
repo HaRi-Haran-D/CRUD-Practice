@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <div>
+        <h2>{{ list.name }}</h2>
+        <p>{{ list.age }}</p>
+        <p>{{ list.occup }}</p>
+        <div>
+            <a href="{% url 'app:update' list.id %}">Update</a>
+            <a href="{% url 'app:delete' list.id %}">Delete</a>
+        </div>
+    </div>
+{% endblock %}

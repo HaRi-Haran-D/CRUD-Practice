@@ -1,0 +1,9 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <p>Byee!</p>
+    <form action="" method='post'>
+        {% csrf_token %}
+        <p>Confirm to Delete!</p>
+        <input type="submit">
+    </form>
+{% endblock %}
