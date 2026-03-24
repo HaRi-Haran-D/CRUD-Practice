@@ -5,15 +5,12 @@ from .forms import CompanyForm
 
 # Create your views here.
 def home(request):
-    if request.method == 'POST':
-        form = CompanyForm(request.POST)
-        if form.is_valid():
-            form.save()
-            form=CompanyForm()
-            messages.success(request, "Record added successfully.")
-            return redirect('home')
-    else:
-        form = CompanyForm()
+    form = CompanyForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form=CompanyForm()
+        messages.success(request, "Record added successfully.")
+        return redirect('home')
     return render(request, 'index.html', {'form': form})
 
 
@@ -24,12 +21,10 @@ def emp_list(request):
 
 def update_list(request, item_id):
     item = Company.objects.get(id=item_id)
-    form = CompanyForm(instance=item)
-    if request.method == "POST":
-        form = CompanyForm(request.POST, instance=item)
-        if form.is_valid():
-            form.save()
-            return redirect('list')
+    form = CompanyForm(request.POST or None, instance=item)
+    if form.is_valid():
+        form.save()
+        return redirect('list')
     return render(request, 'emp_update.html', {'form': form})
 
 
