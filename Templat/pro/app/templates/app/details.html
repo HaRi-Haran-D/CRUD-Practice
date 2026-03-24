@@ -4,14 +4,16 @@
     <div>
         <img class="w-70 rounded-lg" src="{{ items.image }}" alt="">
     </div>
-    <div class="mx-16">
+    <div class="mx-1">
         <h2 class="font-bold text-3xl">{{ items.name }}</h2>
         <p class="text-amber-400 font-bold text-2xl">$ {{ items.price }}</p>
         <p>{{ items.descri }}</p>
     </div>
     <div>
-        <a class="bg-gray-500 px-2 py-1 rounded-md text-white" href="{% url 'app:update' items.id %}">Edit</a>
-        <a class="bg-red-500 px-2 py-1 rounded-md text-white" href="{% url 'app:delete' items.id %}">Delete</a>
+        {% if items.user_name == request.user %}
+            <a class="bg-gray-500 px-2 py-1 rounded-md text-white" href="{% url 'app:update' items.id %}">Edit</a>
+            <a class="bg-red-500 px-2 py-1 rounded-md text-white" href="{% url 'app:delete' items.id %}">Delete</a>
+        {% endif %}
 
         {% comment %} <form action="{% url 'app:delete' items.id %}">
             {% csrf_token %}
@@ -20,6 +22,6 @@
     </div>
 </div>
 <div>
-    <a class="bg-blue-500 px-2 py-1 rounded-md text-white" href="{% url 'app:home' %}">Back to Home</a>
+    <a class="bg-gray-400 px-2 py-1 rounded-md text-white hover:bg-gray-500" href="{% url 'app:home' %}">Back to Home</a>
 </div>
 {% endblock %}

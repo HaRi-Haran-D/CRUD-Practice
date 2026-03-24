@@ -1,12 +1,28 @@
 {% extends 'app/base.html' %}
 {% block content %}
-<div>
-    <form action="" method="post">
+<div class="flex flex-col justify-center items-center min-h-full p-10">
+    <form class="shadow-lg w-100 p-5 px-10 rounded-xl space-y-5" method="post">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button class="bg-blue-500 px-2 py-1 rounded-md text-white" type="submit">Submit</button>
+
+        {% if form.non_field_errors %}
+        <div class="bg-red-500 text-white p-2 rounded-lg">
+            {% for error in form.non_field_errors %}
+
+            <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div>
+            <h2 class="text-4xl text-center font-bold">Add Item</h2>
+        </div>
+        {% for field in form %}
+        <div>
+            <label class="text-bold" for="">{{field.label}}</label>
+            <div class="border rounded">{{ field }}</div>
+        </div>
+        {% endfor %}
+        <button class="mt-1 block text-white mx-auto bg-gray-400 px-4 py-2 w-25 rounded-lg hover:bg-gray-500" type="submit">Add</button>
     </form>
-</div>
+</div>    
 {% endblock %}

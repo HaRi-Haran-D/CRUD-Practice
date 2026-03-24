@@ -45,7 +45,7 @@ class ItemCreateView(CreateView):
         form.instance.user_name = self.request.user
         return super().form_valid(form)
     
-76
+
 # def update(request, id):
 #     item = Item.objects.get(id=id)
 #     form = ItemForm(request.POST or None, instance=item)
@@ -58,7 +58,10 @@ class ItemCreateView(CreateView):
 class ItemUpdateView(UpdateView):
     model = Item
     fields = '__all__'
-    template_name = 'app/item_form.html'
+    template_name = 'app/item_update_form.html'
+    
+    def get_queryset(self):
+        return Item.objects.filter(user_name = self.request.user)
 
 
 # def delete(request, id):

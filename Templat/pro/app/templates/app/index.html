@@ -1,10 +1,10 @@
 {% extends 'app/base.html' %}
 {% block content %}
 
-<div class="">
+<div class="m-3">
     {% for item in items %}
-        <div class="m-10 h-48 flex mx-auto w-1/2 border-1 rounded-sm p-3">
-            <div>
+        <div class="m-10 h-48 flex mx-auto w-full border-1 rounded-sm p-3">
+            <div class="">
                 <img class="w-50 h-full rounded-lg" src="{{ item.image }}" alt="">
             </div>
             <div class="mx-10">
@@ -14,7 +14,7 @@
                 <p class="text-amber-400 font-bold">$ {{ item.price }}</p>
             </div>
             <div class="my-3">
-                <a class="bg-gray-400 text-white font-bold px-3 py-2 rounded-md hover:bg-gray-500" href="{% url 'app:detail' item.id %}">View Details</a>
+                <a class="bg-gray-400 text-white font-bold px-3 py-2 rounded-md hover:bg-gray-500" href="{% url 'app:detail' item.id %}">Details</a>
             </div>
         </div>
     {% endfor %}
