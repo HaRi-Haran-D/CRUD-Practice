@@ -9,9 +9,15 @@
             </div>
             <div class="mx-10">
                 <h2 class="font-extrabold text-lg">{{ item.user_name }}</h2>
+                <p>{{ item.created_at }}</p>
                 <p class="font-bold">{{ item.name }}</p>
                 <p>{{ item.descri }}</p>
                 <p class="text-amber-400 font-bold">$ {{ item.price }}</p>
+                {% if item.is_available %}
+                <p>Available</p>
+                {% else %}
+                <p>Not Available</p>
+                {% endif %}
             </div>
             <div class="my-3">
                 <a class="bg-gray-400 text-white font-bold px-3 py-2 rounded-md hover:bg-gray-500" href="{% url 'app:detail' item.id %}">Details</a>
