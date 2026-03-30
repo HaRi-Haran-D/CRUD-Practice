@@ -1,0 +1,288 @@
+[
+{
+    "model": "app.item",
+    "pk": 2,
+    "fields": {
+        "user_name": 1,
+        "name": "Fluffy Pancake",
+        "price": "140.00",
+        "descri": "Smooth",
+        "image": "https://www.bdtask.com/blog/assets/plugins/ckfinder/core/connector/php/uploads/images/quick-pancake.webp",
+        "is_availablle": true,
+        "created_at": "2026-03-28T16:16:14.490Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 3,
+    "fields": {
+        "user_name": 1,
+        "name": "Burger",
+        "price": "100.00",
+        "descri": "Crunchy",
+        "image": "https://www.menubly.com/wp-content/uploads/2024/03/fast-food-restaurant-names.jpg",
+        "is_availablle": true,
+        "created_at": "2026-03-28T16:16:14.490Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 4,
+    "fields": {
+        "user_name": 1,
+        "name": "Margherita Pizza",
+        "price": "8.99",
+        "descri": "Classic Italian pizza with mozzarella and tomato",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.830Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 5,
+    "fields": {
+        "user_name": 1,
+        "name": "Cheeseburger",
+        "price": "6.49",
+        "descri": "Beef patty with cheese, lettuce and tomato",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.846Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 6,
+    "fields": {
+        "user_name": 1,
+        "name": "Caesar Salad",
+        "price": "5.99",
+        "descri": "Crisp romaine with parmesan and croutons",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.848Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 7,
+    "fields": {
+        "user_name": 1,
+        "name": "Chicken Tacos",
+        "price": "7.29",
+        "descri": "Soft tortillas with grilled chicken and salsa",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.848Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 8,
+    "fields": {
+        "user_name": 1,
+        "name": "Sushi Platter",
+        "price": "12.99",
+        "descri": "Assorted rolls with tuna, salmon and avocado",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.850Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 9,
+    "fields": {
+        "user_name": 1,
+        "name": "Pasta Alfredo",
+        "price": "9.49",
+        "descri": "Creamy white sauce pasta with mushrooms",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.851Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 10,
+    "fields": {
+        "user_name": 1,
+        "name": "Falafel Wrap",
+        "price": "6.99",
+        "descri": "Middle Eastern wrap with chickpea patties",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.852Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 11,
+    "fields": {
+        "user_name": 1,
+        "name": "Pad Thai",
+        "price": "10.49",
+        "descri": "Thai stir-fried noodles with peanuts and veggies",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.852Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 12,
+    "fields": {
+        "user_name": 1,
+        "name": "French Fries",
+        "price": "3.49",
+        "descri": "Crispy golden potato fries with salt",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.853Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 13,
+    "fields": {
+        "user_name": 1,
+        "name": "Veggie Burger",
+        "price": "6.29",
+        "descri": "Plant-based patty with lettuce and tomato",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.854Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 14,
+    "fields": {
+        "user_name": 1,
+        "name": "Butter Chicken",
+        "price": "11.49",
+        "descri": "Indian-style chicken in creamy tomato sauce",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.855Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 15,
+    "fields": {
+        "user_name": 1,
+        "name": "Ramen Bowl",
+        "price": "10.99",
+        "descri": "Japanese noodle soup with egg and pork",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.856Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 16,
+    "fields": {
+        "user_name": 1,
+        "name": "Greek Salad",
+        "price": "7.99",
+        "descri": "Feta cheese, olives, cucumber and tomatoes",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.857Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 17,
+    "fields": {
+        "user_name": 1,
+        "name": "BBQ Ribs",
+        "price": "14.99",
+        "descri": "Slow cooked pork ribs with barbecue sauce",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.858Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 18,
+    "fields": {
+        "user_name": 1,
+        "name": "Shawarma",
+        "price": "8.49",
+        "descri": "Grilled meat wrap with garlic sauce",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.860Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 19,
+    "fields": {
+        "user_name": 1,
+        "name": "Pancakes",
+        "price": "5.79",
+        "descri": "Stack of fluffy pancakes with maple syrup",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.861Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 20,
+    "fields": {
+        "user_name": 1,
+        "name": "Mutton Biryani",
+        "price": "12.29",
+        "descri": "Fragrant rice with spiced mutton",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.862Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 21,
+    "fields": {
+        "user_name": 1,
+        "name": "Spring Rolls",
+        "price": "4.99",
+        "descri": "Crispy rolls stuffed with vegetables",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.863Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 22,
+    "fields": {
+        "user_name": 1,
+        "name": "Fish and Chips",
+        "price": "9.99",
+        "descri": "British-style fried fish with fries",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.863Z"
+    }
+},
+{
+    "model": "app.item",
+    "pk": 23,
+    "fields": {
+        "user_name": 1,
+        "name": "Ice Cream Sundae",
+        "price": "4.59",
+        "descri": "Vanilla ice cream topped with chocolate sauce",
+        "image": "https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781",
+        "is_availablle": true,
+        "created_at": "2026-03-28T17:15:48.864Z"
+    }
+}
+]
