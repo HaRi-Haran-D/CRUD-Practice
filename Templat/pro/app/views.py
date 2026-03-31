@@ -75,3 +75,13 @@ class ItemUpdateView(UpdateView):
 class ItemDeleteView(DeleteView):
     model = Item
     success_url = reverse_lazy('app:home')
+
+
+# def get_objects(request):
+#     for item in Item.objects.all():
+#         print(item.name)
+
+# def get_objects_optimized(request):
+#     items = Item.objects.only('name')
+#     for item in items:
+#         print(item.name)
