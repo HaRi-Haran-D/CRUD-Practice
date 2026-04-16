@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils import timezone
+from .managers import ItemManager
 
 # Create your models here.
 class Item(models.Model):
@@ -16,11 +18,21 @@ class Item(models.Model):
     is_availablle = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(null=True, blank=True)
+
+    objects = ItemManager()
+
     def __str__(self):
         return self.name + ": " + str(self.price)
     
     def get_absolute_url(self):
         return reverse('app:home')
+    
+    def delete(self,using=None,keep_parent=False):
+        self.is_deleted = True
+        self.deleted_at = timezone.now()
+        self.save()
 
 class Category(models.Model):
     name = models.CharField(max_length=50)

@@ -64,17 +64,17 @@ class ItemUpdateView(UpdateView):
         return Item.objects.filter(user_name = self.request.user)
 
 
-# def delete(request, id):
-    # item = get_object_or_404(Item, id=id)
-    # if request.method == 'POST':
-    #     item.delete()
-    #     return redirect('app:home')
-    # return render(request, 'app/delete.html')
+def delete_item(request, id):
+    item = get_object_or_404(Item, id=id)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('app:home')
+    return render(request, 'app/delete.html')
 
 
-class ItemDeleteView(DeleteView):
-    model = Item
-    success_url = reverse_lazy('app:home')
+# class ItemDeleteView(DeleteView):
+#     model = Item
+#     success_url = reverse_lazy('app:home')
 
 
 # def get_objects(request):
