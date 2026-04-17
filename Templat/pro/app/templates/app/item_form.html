@@ -1,28 +1,61 @@
 {% extends 'app/base.html' %}
 {% block content %}
-<div class="flex flex-col justify-center items-center min-h-full p-10">
-    <form class="shadow-lg w-100 p-5 px-10 rounded-xl space-y-5" method="post">
+<div class="px-4 py-10 lg:h-screen lg:flex lg:items-center lg:justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+
+    <form method="post"
+        class="w-full max-w-2xl mx-auto bg-white shadow-2xl rounded-2xl p-7 sm:p-7 space-y-6">
         {% csrf_token %}
 
-        {% if form.non_field_errors %}
-        <div class="bg-red-500 text-white p-2 rounded-lg">
-            {% for error in form.non_field_errors %}
+        <!-- Title -->
+        <div class="text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-800">Add Item</h2>
+        </div>
 
+        <!-- Errors -->
+        {% if form.non_field_errors %}
+        <div class="bg-red-500/90 text-white p-3 rounded-lg text-sm shadow">
+            {% for error in form.non_field_errors %}
             <p>{{ error }}</p>
             {% endfor %}
         </div>
         {% endif %}
 
-        <div>
-            <h2 class="text-4xl text-center font-bold">Add Item</h2>
+        <!-- Fields -->
+        <div class="space-y-5">
+            {% for field in form %}
+            <div class="flex flex-col space-y-1">
+                <label class="text-sm font-semibold text-gray-700">
+                    {{ field.label }}
+                </label>
+
+                <style>
+                    input, textarea, select {
+                        width: 100% !important;
+                        border: none !important;
+                        outline: none !important;
+                        background: transparent !important;
+                    }
+                </style>
+
+                <div class="border rounded-lg px-2 py-2 focus-within:ring-2 focus-within:ring-gray-400">
+                    {{ field }}
+                </div>
+
+                {% if field.errors %}
+                <p class="text-red-500 text-xs">{{ field.errors }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
         </div>
-        {% for field in form %}
-        <div>
-            <label class="text-bold" for="">{{field.label}}</label>
-            <div class="border rounded">{{ field }}</div>
-        </div>
-        {% endfor %}
-        <button class="mt-1 block text-white mx-auto bg-gray-400 px-4 py-2 w-25 rounded-lg hover:bg-gray-500" type="submit">Add</button>
+
+        <!-- Button -->
+        <button type="submit"
+            class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition">
+            Add Item
+        </button>
+
     </form>
-</div>    
+
+</div>
+
 {% endblock %}

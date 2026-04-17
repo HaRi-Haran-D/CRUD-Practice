@@ -4,6 +4,9 @@ class ItemManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(is_deleted=False)
     
+
+
+
     # def cheap_items(self):
     #     return self.filter(price__lt=5)
     
