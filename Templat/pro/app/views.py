@@ -13,6 +13,7 @@ from .forms import ItemForm
 #     items = Item.objects.all()
 #     return render(request, 'app/index.html', {'items':items})
 
+
 class IndexClassView(ListView):
     model = Item
     template_name = 'app/index.html'

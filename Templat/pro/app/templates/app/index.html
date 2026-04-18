@@ -1,4 +1,5 @@
 {% extends 'app/base.html' %}
+{% block tilte %}Home{% endblock %}
 {% block content %}
 
 <div class="p-6">
@@ -15,7 +16,7 @@
                     <h2 class="font-bold text-gray-800 text-sm">{{ item.user_name }}</h2>
                     <p class="text-xs text-gray-500">{{ item.created_at }}</p>
                 </div>
-                <h3 class="text-md font-semibold">{{ item.id }}. {{ item.name }}</h3>
+                <h3 class="text-md font-semibold">{{ item.name }}</h3>
 
                 <p class="text-gray-600 text-sm mt-1 line-clamp-2">
                     {{ item.descri }}

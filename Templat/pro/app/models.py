@@ -9,7 +9,7 @@ from .managers import ItemManager
 class Item(models.Model):
     class Meta:
         indexes = [
-            models.Index(fields=['name','price'])
+            models.Index(fields=['user_name','price']),
         ]
     user_name = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=50, db_index=True)
