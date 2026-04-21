@@ -4,20 +4,24 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.core.paginator import Paginator
 from .models import Item
 from .forms import ItemForm
 
 # Create your views here.
-# @login_required
-# def home(request):
-#     items = Item.objects.all()
-#     return render(request, 'app/index.html', {'items':items})
+@login_required
+def home(request):
+    items = Item.objects.all()
+    paginator = Paginator(items, 9)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'app/index.html', {'page_obj':page_obj})
 
 
-class IndexClassView(ListView):
-    model = Item
-    template_name = 'app/index.html'
-    context_object_name = 'items'
+# class IndexClassView(ListView):
+#     model = Item
+#     template_name = 'app/index.html'
+#     context_object_name = 'items'
 
 
 # def detail(request, id):

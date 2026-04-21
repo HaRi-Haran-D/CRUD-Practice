@@ -4,7 +4,7 @@
 
 <div class="p-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for item in items %}
+        {% for item in page_obj %}
         <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
             <div class="h-44 w-full overflow-hidden">
                 <img src="{{ item.image }}" 
@@ -46,7 +46,54 @@
     </div>
 </div>
 
+<div style="display:flex; justify-content:center; align-items:center; gap:10px; margin:40px 0; flex-wrap:wrap;">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}"
+       style="padding:10px 16px; border-radius:10px; background:#f1f3f5; text-decoration:none; color:#333; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+        ← Prev
+    </a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <span style="padding:10px 16px; border-radius:10px; background:#696464; color:#fff; box-shadow:0 3px 8px rgba(0,0,0,0.15);">
+                {{ num }}
+            </span>
+        {% else %}
+            <a href="?page={{ num }}"
+               style="padding:10px 16px; border-radius:10px; background:#ffffff; text-decoration:none; color:#333; box-shadow:0 2px 6px rgba(0,0,0,0.08);">
+                {{ num }}
+            </a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}"
+       style="padding:10px 16px; border-radius:10px; background:#f1f3f5; text-decoration:none; color:#333; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+        Next →
+    </a>
+    {% endif %}
+</div>
+
+
+{% comment %} 
+<div>
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Prev</a>
+    {% endif %}
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages}}</span>
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+</div> 
+{% endcomment %}
+
 {% endblock %}
+
+
+
+
+
 
 {% comment %} {% extends 'app/base.html' %}
 {% block content %}

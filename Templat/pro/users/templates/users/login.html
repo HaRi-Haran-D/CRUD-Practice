@@ -1,4 +1,5 @@
 {% extends 'app/base.html' %}
+{% comment %} {% extends 'app/base.html' %}
 {% block content %}
 <div class="flex flex-col justify-center items-center min-h-screen p-10">
     <form class="shadow-lg p-10 rounded-xl space-y-5" method="post">
@@ -28,7 +29,104 @@
             </div>
         </div>
         
-        <button class="m-3 block text-white mx-auto bg-gray-400 px-4 py-2 w-25 rounded-lg hover:bg-gray-500" type="submit">Submit</button>
+        <button class="m-3 block text-white mx-auto bg-gray-400 px-4 py-2 w-25 rounded-lg hover:bg-gray-500" type="submit">Login</button>
     </form>
 </div>
+{% endblock %} {% endcomment %}
+
+
+{% block content %}
+
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 px-4">
+
+    <form method="post" class="w-full max-w-md bg-white p-8 rounded-2xl shadow-2xl space-y-6">
+        {% csrf_token %}
+
+        <!-- Title -->
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-gray-800">Welcome Back</h2>
+            <p class="text-gray-500 text-sm mt-1">Login to your account</p>
+        </div>
+
+        <!-- Errors -->
+        {% if form.non_field_errors %}
+        <div class="bg-red-500/90 text-white text-sm p-3 rounded-lg">
+            {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <style>
+/* Make all Django form inputs clean and full width */
+input, textarea, select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db; /* light gray */
+    background-color: #f9fafb;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+/* Focus effect */
+input:focus, textarea:focus, select:focus {
+    border-color: #374151; /* dark gray */
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(55, 65, 81, 0.2);
+}
+
+/* Remove weird inner styling */
+input {
+    margin: 0;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Form spacing fix */
+form div {
+    margin-bottom: 16px;
+}
+</style>
+
+        <!-- Username -->
+        <div class="space-y-1">
+            <label class="text-sm font-semibold text-gray-700">Username</label>
+            <div class="border rounded-lg transition">
+                {{ form.username }}
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="space-y-1">
+            <label class="text-sm font-semibold text-gray-700">Password</label>
+            <div class="border rounded-lg transition">
+                {{ form.password }}
+            </div>
+        </div>
+
+        <!-- Button -->
+        <button type="submit"
+            class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition duration-300 shadow-md">
+            Login
+        </button>
+
+        <!-- Extra -->
+        <p class="text-center text-sm text-gray-500">
+            Don’t have an account?
+            <a href="#" class="text-gray-800 font-semibold hover:underline">Sign up</a>
+        </p>
+
+    </form>
+
+</div>
+
 {% endblock %}

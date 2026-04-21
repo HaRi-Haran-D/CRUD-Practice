@@ -5,6 +5,8 @@ class ItemManager(models.Manager):
         return super().get_queryset().filter(is_deleted=False)
     
 
+    def deleted(self):
+        return super().get_queryset().filter(is_deleted=True)
 
 
     # def cheap_items(self):
