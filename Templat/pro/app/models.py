@@ -15,7 +15,7 @@ class Item(models.Model):
     name = models.CharField(max_length=50, db_index=True)
     price = models.DecimalField(max_digits=6,decimal_places=2, db_index=True)
     descri = models.CharField(max_length=100)
-    image = models.URLField(max_length=500,default='https://www.foodservicerewards.com/cdn/shop/t/262/assets/fsr-placeholder.png?v=45093109498714503231652397781')
+    image = models.URLField(max_length=500,default='https://i.pinimg.com/1200x/2a/a9/b7/2aa9b7ebcb1905e441c6d486dfe3ff9d.jpg')
     is_available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

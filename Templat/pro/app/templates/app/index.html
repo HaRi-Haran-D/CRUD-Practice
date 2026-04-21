@@ -1,9 +1,13 @@
 {% extends 'app/base.html' %}
-{% block tilte %}Home{% endblock %}
+{% block title %}Home{% endblock %}
+
+{% load cache %}
+
 {% block content %}
 
 <div class="p-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% cache 900 "homepage_items" page_obj.number %}
         {% for item in page_obj %}
         <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
             <div class="h-44 w-full overflow-hidden">
@@ -42,7 +46,7 @@
             </div>
         </div>
         {% endfor %}
-
+        {% endcache %}
     </div>
 </div>
 

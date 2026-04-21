@@ -148,3 +148,11 @@ LOGIN_URL = 'users:login'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
 
 MEDIA_URL = '/pictures/'
+
+
+CACHES = {
+    "default":{
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": BASE_DIR / "cache",
+    }
+}

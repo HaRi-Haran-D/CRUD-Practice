@@ -5,11 +5,15 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_headers
 from .models import Item
 from .forms import ItemForm
 
 # Create your views here.
-@login_required
+# @login_required
+# @cache_page(60 * 15)
+# @vary_on_headers("User-Agent")
 def home(request):
     items = Item.objects.all()
     paginator = Paginator(items, 9)
@@ -24,15 +28,15 @@ def home(request):
 #     context_object_name = 'items'
 
 
-# def detail(request, id):
-#     items = Item.objects.get(id=id)
-#     return render(request, 'app/details.html', {'items':items})
+def detail(request, id):
+    items = Item.objects.get(id=id)
+    return render(request, 'app/details.html', {'items':items})
 
 
-class FoodDetailView(DetailView):
-    model = Item
-    template_name = 'app/details.html'
-    context_object_name = 'items'
+# class FoodDetailView(DetailView):
+#     model = Item
+#     template_name = 'app/details.html'
+#     context_object_name = 'items'
 
 # def create(request):
 #     form = ItemForm(request.POST or None)
