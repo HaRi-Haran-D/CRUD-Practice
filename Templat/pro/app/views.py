@@ -7,15 +7,25 @@ from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_headers
+import logging
+from django.utils import timezone
 from .models import Item
 from .forms import ItemForm
 
+logger = logging.getLogger(__name__)
+
+
 # Create your views here.
+
+
 # @login_required
 # @cache_page(60 * 15)
 # @vary_on_headers("User-Agent")
 def home(request):
+    logger.info("Fetching all items from Database")
+    logger.info(f"User: {request.user} [{timezone.now().isoformat()}] requested item list form {request.META.get('REMOTE_ADDR')}")
     items = Item.objects.all()
+    logger.debug(f"Found {items.count()} items")
     paginator = Paginator(items, 9)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -29,8 +39,15 @@ def home(request):
 
 
 def detail(request, id):
-    items = Item.objects.get(id=id)
-    return render(request, 'app/details.html', {'items':items})
+    logger.info(f"Fetching an item with id:{id}")
+    try:
+        items = get_object_or_404(Item, pk=id)
+        # items = Item.objects.get(id=id)
+        logger.debug(f"Item Found {items.name} (${items.price})")
+        return render(request, 'app/details.html', {'items':items})
+    except Exception as e:
+        logging.error(f"Error fetching the item %s: %s",id,e)
+        raise
 
 
 # class FoodDetailView(DetailView):
@@ -38,22 +55,24 @@ def detail(request, id):
 #     template_name = 'app/details.html'
 #     context_object_name = 'items'
 
-# def create(request):
-#     form = ItemForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         return redirect('app:home')
-#     return render(request, 'app/form.html', {'form':form})
+def create(request):
+    form = ItemForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('app:home')
+    # else:
+        
+    return render(request, 'app/item_form.html', {'form':form})
 
 
-class ItemCreateView(CreateView):
-    model = Item
-    fields = ['name', 'price', 'descri', 'image']
+# class ItemCreateView(CreateView):
+#     model = Item
+#     fields = ['name', 'price', 'descri', 'image']
 
-    def form_valid(self, form):
-        form.instance.user_name = self.request.user
-        return super().form_valid(form)
-    
+#     def form_valid(self, form):
+#         form.instance.user_name = self.request.user
+#         return super().form_valid(form)
+
 
 # def update(request, id):
 #     item = Item.objects.get(id=id)

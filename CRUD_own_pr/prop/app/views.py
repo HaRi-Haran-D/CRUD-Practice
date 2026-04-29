@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
+from django.core.paginator import Paginator
 from .forms import StudentForm
 from .models import Student
 
@@ -24,7 +25,10 @@ def home(request):
 
 def list(request):
     list = Student.objects.all()
-    return render(request, 'list.html', {'list':list})
+    paginator = Paginator(list,1)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'list.html', {'page_obj':page_obj})
 
 
 def update(request,item_id):
