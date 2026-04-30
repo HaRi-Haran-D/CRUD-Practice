@@ -14,4 +14,8 @@ urlpatterns = [
     path('update/<int:pk>/', views.ItemUpdateView.as_view(), name='update'),
     # path('delete/<int:pk>/', views.ItemDeleteView.as_view(), name='delete'),
     path('delete/<int:id>/', views.delete_item, name='delete'),
+
+    #API URL by DRF
+    path('api/items/', views.item_list_api, name='api_items'),
+    path('api/items/<int:pk>/', views.item_get_api, name='get_api_item'),
 ]

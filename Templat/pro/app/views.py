@@ -11,11 +11,42 @@ import logging
 from django.utils import timezone
 from .models import Item
 from .forms import ItemForm
+from .serializers import ItemSerializer
+from django.http import JsonResponse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 logger = logging.getLogger(__name__)
 
 
 # Create your views here.
+@api_view(["GET", "POST"])
+def item_list_api(request):
+    if request.method == "GET":
+        items = Item.objects.all()
+        serializer = ItemSerializer(items, many=True)
+        return Response(serializer.data)
+    elif request.method == "POST":
+        serializer = ItemSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+
+@api_view(["GET", "PUT", "DELETE"])
+def item_get_api(request, pk):
+    item = Item.objects.get(pk=pk)
+    if request.method == "GET":
+        serializer = ItemSerializer(item)
+        return Response(serializer.data)
+    elif request.method == "PUT":
+        serializer = ItemSerializer(item, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+    elif request.method == "DELETE":
+        item.delete()
+        return Response({"message":"Item Deleted"})
 
 
 # @login_required
@@ -60,8 +91,6 @@ def create(request):
     if form.is_valid():
         form.save()
         return redirect('app:home')
-    # else:
-        
     return render(request, 'app/item_form.html', {'form':form})
 
 
