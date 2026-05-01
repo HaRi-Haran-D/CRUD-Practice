@@ -1,9 +1,12 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.views.decorators.cache import cache_page
-
+from rest_framework.routers import DefaultRouter
 
 app_name = 'app'
+
+router = DefaultRouter()
+router.register(r"items", views.ItemViewSet, basename='item')
 urlpatterns = [
     # path('', views.IndexClassView.as_view(), name='home'),
     path('', views.home, name='home'),
@@ -16,6 +19,8 @@ urlpatterns = [
     path('delete/<int:id>/', views.delete_item, name='delete'),
 
     #API URL by DRF
-    path('api/items/', views.item_list_api, name='api_items'),
-    path('api/items/<int:pk>/', views.item_get_api, name='get_api_item'),
+    # path('api/items/', views.ItemListCreateAPI.as_view(), name='api_items'),
+    # path('api/items/<int:pk>/', views.ItemRetrieveUpdateDestryAPIView.as_view(), name='get_api_item'),
+    path("api/", include(router.urls)),
+
 ]
