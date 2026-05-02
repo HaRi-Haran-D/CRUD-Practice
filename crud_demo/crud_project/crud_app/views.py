@@ -3,7 +3,7 @@ from .models import Student
 from .forms import StudentForm
 
 # Create your views here.
-def home(request):
+def student_list(request):
     form = StudentForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -11,7 +11,7 @@ def home(request):
     return render(request, 'home.html', {'form':form})
 
 
-def student_list(request):
+def home(request):
     list = Student.objects.all()
     return render(request, 'list.html', {'list':list})
 

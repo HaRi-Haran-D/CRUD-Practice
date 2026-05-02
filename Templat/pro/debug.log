@@ -832,3 +832,393 @@ C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/items/10
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Python313\Lib\site-packages\django\utils\deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python313\Lib\site-packages\django\middleware\common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PUT data. Change your form to point to 127.0.0.1:8000/api/items/10/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Unauthorized: /api/items/10/
+Watching for file changes with StatReloader
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T07:18:20.107248+00:00] requested item list form 127.0.0.1
+Found 25 items
+Not Found: /favicon.ico
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T07:19:42.496150+00:00] requested item list form 127.0.0.1
+Found 25 items
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T07:20:35.270463+00:00] requested item list form 127.0.0.1
+Found 25 items
+Fetching all items from Database
+User: Hari [2026-05-02T07:21:34.008771+00:00] requested item list form 127.0.0.1
+Found 25 items
+Forbidden: /api/items/10/
+Fetching an item with id:5
+Item Found Cheeseburger ($6.49)
+Fetching all items from Database
+User: Hari [2026-05-02T07:24:04.881190+00:00] requested item list form 127.0.0.1
+Found 25 items
+Fetching an item with id:9
+Item Found Pasta Alfredo ($9.49)
+Fetching all items from Database
+User: Hari [2026-05-02T07:25:45.264355+00:00] requested item list form 127.0.0.1
+Found 25 items
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Fetching all items from Database
+User: Hari [2026-05-02T07:33:19.640649+00:00] requested item list form 127.0.0.1
+Found 26 items
+Fetching all items from Database
+User: Hari [2026-05-02T07:33:23.019849+00:00] requested item list form 127.0.0.1
+Found 26 items
+Fetching all items from Database
+User: Hari [2026-05-02T07:35:24.806969+00:00] requested item list form 127.0.0.1
+Found 26 items
+Fetching an item with id:33
+Item Found Tikka Masala chicken ($13.90)
+Fetching all items from Database
+User: Hari [2026-05-02T07:35:33.929507+00:00] requested item list form 127.0.0.1
+Found 26 items
+Fetching all items from Database
+User: Hari [2026-05-02T07:35:51.316534+00:00] requested item list form 127.0.0.1
+Found 26 items
+Fetching all items from Database
+User: Hari [2026-05-02T07:36:03.428094+00:00] requested item list form 127.0.0.1
+Found 26 items
+Fetching all items from Database
+User: Hari [2026-05-02T07:36:42.592346+00:00] requested item list form 127.0.0.1
+Found 26 items
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T09:40:14.747164+00:00] requested item list form 127.0.0.1
+Found 26 items
+Not Found: /favicon.ico
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T09:40:25.402548+00:00] requested item list form 127.0.0.1
+Found 26 items
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T09:42:58.290430+00:00] requested item list form 127.0.0.1
+Found 26 items
+Watching for file changes with StatReloader
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T13:19:01.491898+00:00] requested item list form 127.0.0.1
+Found 26 items
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden: /api/items/10/
+Method Not Allowed: /api/items/
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T13:29:54.914909+00:00] requested item list form 127.0.0.1
+Found 28 items
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T13:30:00.545965+00:00] requested item list form 127.0.0.1
+Found 28 items
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T13:30:06.910269+00:00] requested item list form 127.0.0.1
+Found 28 items
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T13:30:14.487985+00:00] requested item list form 127.0.0.1
+Found 28 items
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T13:31:16.050382+00:00] requested item list form 127.0.0.1
+Found 28 items
+Fetching an item with id:5
+Item Found Cheeseburger ($6.49)
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T13:31:59.769252+00:00] requested item list form 127.0.0.1
+Found 28 items
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T13:32:02.585177+00:00] requested item list form 127.0.0.1
+Found 28 items
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Fetching all items from Database
+User: AnonymousUser [2026-05-02T14:03:28.554899+00:00] requested item list form 127.0.0.1
+Found 28 items
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Unauthorized: /api/items/
+Bad Request: /api/items/
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Unauthorized: /api/items/
+Bad Request: /api/items/
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Too Many Requests: /api/items/
+Too Many Requests: /api/items/
+Too Many Requests: /api/items/
+Too Many Requests: /api/items/
+Too Many Requests: /api/items/
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Djangooo\CRUD_Practice\Templat\pro\pro\settings.py changed, reloading.
+Watching for file changes with StatReloader
