@@ -24,6 +24,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticate
 from .permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter, SearchFilter
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 
 logger = logging.getLogger(__name__)
 
@@ -37,11 +38,12 @@ class ItemViewSet(viewsets.ModelViewSet):
     permission_classes = [IsOwnerOrReadOnly]
     filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
     search_fields = ['name', 'descri']
+    throttle_classes = [AnonRateThrottle, UserRateThrottle]
     # filterset_fields = ['name', 'price']
     # ordering_fields = ['name', 'price']
 
-    def perform_create(self, serializer):
-        serializer.save(user_name = self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(user_name = self.request.user)
 
 # @login_required
 # @cache_page(60 * 15)
