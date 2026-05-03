@@ -9,9 +9,9 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_headers
 import logging
 from django.utils import timezone
-from .models import Item
+from .models import Item, Order
 from .forms import ItemForm
-from .serializers import ItemSerializer
+from .serializers import ItemSerializer, OrderSerializer
 from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -44,6 +44,13 @@ class ItemViewSet(viewsets.ModelViewSet):
 
     # def perform_create(self, serializer):
     #     serializer.save(user_name = self.request.user)
+
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+
 
 # @login_required
 # @cache_page(60 * 15)
