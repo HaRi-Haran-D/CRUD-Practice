@@ -4,6 +4,6 @@
 {% block body %}
 <h1>Hello World!</h1>
 <a href="">Home</a>
-<a href="">Products</a>
-<a href="">Add Product</a>
+<a href="{% url 'app_folder:product_list' %}">Products</a>
+<a href="{% url 'app_folder:create_product' %}">Add Product</a>
 {% endblock %}

@@ -9,8 +9,8 @@ def home(request):
     return render(request, 'app_folder/home.html')
 
 def productlist(request):
-    product = ProductModel.objects.all()
-    return render(request, 'app_folder/product_list.html', {'product':product})
+    products = ProductModel.objects.all()
+    return render(request, 'app_folder/product_list.html', {'products':products})
 
 def createproduct(request):
     form = ProductForm(request.POST or None)
