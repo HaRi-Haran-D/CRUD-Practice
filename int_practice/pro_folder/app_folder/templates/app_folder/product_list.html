@@ -26,6 +26,12 @@
                     alt="{{product.product_name}}" width="100px"
                 />
                 </td>
+                <td>
+                    <a href="{% url 'app_folder:updateproduct' product.id %}">Update</a>
+                </td>
+                <td>
+                    <a href="{% url 'app_folder:deleteproduct' product.id %}">Delete</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

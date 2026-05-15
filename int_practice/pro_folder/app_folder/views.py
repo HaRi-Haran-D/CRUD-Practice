@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import ProductModel
 from .forms import ProductForm
@@ -20,3 +20,18 @@ def createproduct(request):
         messages.success(request, f"{product} has been added")
         return redirect('app_folder:home')
     return render(request, 'app_folder/create_product.html', {'form':form})
+
+def updateproduct(request, id):
+    product = get_object_or_404(ProductModel,id=id)
+    form = ProductForm(request.POST or None,instance=product)
+    if form.is_valid():
+        form.save()
+        return redirect('app_folder:product_list')
+    return render(request, 'app_folder/update_product.html', {'form':form})
+
+def deleteproduct(request,id):
+    product = get_object_or_404(ProductModel,id=id)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('app_folder:product_list')
+    return render(request, 'app_folder/delete_product.html')
