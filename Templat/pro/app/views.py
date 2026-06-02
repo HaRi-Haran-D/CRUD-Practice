@@ -30,7 +30,6 @@ logger = logging.getLogger(__name__)
 
 
 # Create your views here.
-
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
