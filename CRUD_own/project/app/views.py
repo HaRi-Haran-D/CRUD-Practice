@@ -1,9 +1,60 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .models import Company
 from .forms import CompanyForm
+from .serializers import CompanySerializer
 
 # Create your views here.
+class CompanyAPI(APIView):
+    def get(self, request):
+        emp = Company.objects.all()
+        company = CompanySerializer(emp, many=True)
+        return Response(company.data)
+
+    def post(self, request):
+        emp = CompanySerializer(data=request.data)
+        if emp.is_valid():
+            emp.save()
+            return Response("Employee has been added")
+        return Response(emp.errors)
+
+
+class CompanyAPIByID(APIView):
+
+    def get(self, request, id):
+        emp = get_object_or_404(Company,id=id)
+        serializer = CompanySerializer(emp)
+        return Response(serializer.data)
+    
+    def put(self, request, id):
+        emp = Company.objects.get(id=id)
+        serializer = CompanySerializer(emp, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Employee Data has been Updated")
+        return Response(serializer.errors)
+
+    def patch(self, request, id):
+        emp = Company.objects.get(id=id)
+        serializer = CompanySerializer(emp, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Employee Data has been Updated")
+        return Response(serializer.errors)
+    
+    def delete(self, request, id):
+        emp=Company.objects.get(id=id)
+        emp.delete()
+        return Response("Employee Has been Deleted")
+
+
+
+
+
+
+
 def home(request):
     form = CompanyForm(request.POST or None)
     if form.is_valid():

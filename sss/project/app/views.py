@@ -48,3 +48,8 @@ class StudAPIByID(APIView):
             serializer.save()
             return Response("Student has Been Updated")
         return Response(serializer.errors)
+    
+    def delete(self, request, id):
+        student = Stud.objects.get(id=id)
+        student.delete()
+        return Response("Student Has been Deleted")
