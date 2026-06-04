@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import User
+from .models import *
+from .serializers import *
 from .forms import UserForm, LoginForm
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 
 # Create your views here.
 def home(request):
@@ -44,3 +48,25 @@ def login(request):
 def logout(request):
     request.session.flush()
     return redirect('login')
+
+
+class StudentAPI(APIView):
+    
+    def post(self, request):
+        stud = StudentSerializer(data=request.data)
+        if stud.is_valid():
+            stud.save()
+            return Response("New Student added")
+        return Response(stud.errors)
+    
+    def get(self, request, id=None):
+        if id == None:
+            stud = Student.objects.all()
+            serializer = StudentSerializer(stud, many=True)
+            return Response(serializer.data)
+        else:
+            stud = Student.objects.get(id=id)
+            serializer = StudentSerializer(stud)
+            return Response(serializer.data)
+    
+    

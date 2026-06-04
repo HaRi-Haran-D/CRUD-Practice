@@ -19,10 +19,18 @@ from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
-from rest_framework_simplejwt.authentication import JWTAuthentication
+try:
+    from rest_framework_simplejwt.authentication import JWTAuthentication
+except ImportError:
+    # Fallback: use TokenAuthentication if simplejwt is not installed
+    JWTAuthentication = TokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsOwnerOrReadOnly
-from django_filters.rest_framework import DjangoFilterBackend
+try:
+    from django_filters.rest_framework import DjangoFilterBackend
+except Exception:
+    # If django-filter is not installed, fallback to None and handle below
+    DjangoFilterBackend = None
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 
@@ -35,7 +43,8 @@ class ItemViewSet(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsOwnerOrReadOnly]
-    filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
+    # Only include available filter backends (django-filter may be optional)
+    filter_backends = list(filter(None, [DjangoFilterBackend, OrderingFilter, SearchFilter]))
     search_fields = ['name', 'descri']
     throttle_classes = [AnonRateThrottle, UserRateThrottle]
     # filterset_fields = ['name', 'price']
