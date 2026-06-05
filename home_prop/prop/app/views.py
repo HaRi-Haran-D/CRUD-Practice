@@ -51,14 +51,14 @@ def logout(request):
 
 
 class StudentAPI(APIView):
-    
+
     def post(self, request):
         stud = StudentSerializer(data=request.data)
         if stud.is_valid():
             stud.save()
             return Response("New Student added")
         return Response(stud.errors)
-    
+
     def get(self, request, id=None):
         if id == None:
             stud = Student.objects.all()
@@ -68,5 +68,19 @@ class StudentAPI(APIView):
             stud = Student.objects.get(id=id)
             serializer = StudentSerializer(stud)
             return Response(serializer.data)
-    
-    
+
+    def put(self, request, id):
+        stud = Student.objects.get(id=id)
+        serializer = StudentSerializer(stud, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Student Data Updated")
+        return Response(serializer.errors)
+
+    def patch(self, request, id):
+        stud = Student.objects.get(id=id)
+        serializer = StudentSerializer(stud, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Student Data Updated")
+        return Response(serializer.errors)
