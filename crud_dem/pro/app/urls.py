@@ -3,8 +3,10 @@ from . import views
 app_name = 'app'
 
 urlpatterns = [
-    path('', views.add, name='add'),
-    path('lists/', views.listdata, name='lists'),
-    path('update/<int:id>/', views.updatedata, name='update'),
-    path('delete/<int:id>/', views.deletedata, name='delete')
+    # path('', views.add, name='add'),
+    # path('lists/', views.listdata, name='lists'),
+    # path('update/<int:id>/', views.updatedata, name='update'),
+    # path('delete/<int:id>/', views.deletedata, name='delete')
+    path('', views.StudentView.as_view()),
+    path('<int:id>/', views.StudentView.as_view()),
 ]

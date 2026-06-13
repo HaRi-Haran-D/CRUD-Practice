@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .forms import StudentForm
 from .models import Student
+from .serializers import *
 
 # Create your views here.
 def add(request):
@@ -34,3 +37,47 @@ def deletedata(request, id):
         data.delete()
         return redirect('app:lists')
     return redirect('app:lists')
+
+
+
+class StudentView(APIView):
+
+    def get(self, request, id=None):
+        if id == None:
+            student = Student.objects.all()
+            serializer = StudentSerializer(student, many=True)
+            return Response(serializer.data)
+        else:
+            student = Student.objects.get(id=id)
+            serializer = StudentSerializer(student)
+            return Response(serializer.data)
+
+    def post(self, request):
+        student = StudentSerializer(data=request.data)
+        if student.is_valid():
+            student.save()
+            return Response("Student Added")
+        return Response(student.errors)
+
+    def patch(self, request, id):
+        student = Student.objects.get(id=id)
+        serializer = StudentSerializer(student, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("StudentUpdated")
+        else:
+            return Response(serializer.errors)
+
+    def put(self, request, id):
+        student = Student.objects.get(id=id)
+        serializer = StudentSerializer(student, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("StudentUpdated")
+        else:
+            return Response(serializer.errors)
+
+    def delete(self, request, id):
+        student = Student.objects.get(id=id)
+        student.delete()
+        return Response("Student Deleted")
