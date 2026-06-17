@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
+from rest_framework import generics
 from .models import Student
 from .serializers import *
 from .forms import StudentForm
+
 
 # Create your views here.
 class StudentView(APIView):
@@ -89,3 +92,8 @@ def delete_list(request,id):
         form.delete()
         return redirect('list')
     return redirect('list')
+
+
+class StudentViewSet(ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
