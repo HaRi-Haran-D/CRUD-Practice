@@ -66,6 +66,7 @@
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
 from .models import *
 from .serializers import *
 
@@ -89,4 +90,9 @@ class StudentView(APIView):
             student_data.save()
             return Response("Student Data Added")
         return Response(student_data.errors)
-    
+
+
+
+class DataBaseView(ModelViewSet):
+    queryset = DataBase.objects.all()
+    serializer_class = DataBaseSerializer
