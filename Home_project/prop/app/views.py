@@ -67,6 +67,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import generics
+from rest_framework import permissions
 from .models import *
 from .serializers import *
 
@@ -96,3 +98,24 @@ class StudentView(APIView):
 class DataBaseView(ModelViewSet):
     queryset = DataBase.objects.all()
     serializer_class = DataBaseSerializer
+
+
+class DatabaseGenericView(generics.ListCreateAPIView):
+
+    def perform_create(self, serializer):
+        serializer.save(description="Manga")
+    
+    queryset = DataBase.objects.all()
+    serializer_class = DataBaseSerializer
+
+
+
+class UserView(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def list(self, request):
+        queryset=self.get_queryset()
+        serializer = UserSerializer(queryset, many=True)
+        return Response(serializer.data)

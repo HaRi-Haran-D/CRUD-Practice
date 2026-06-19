@@ -1,5 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from .models import *
+from .serializers import *
 from . import views
 
 
@@ -16,4 +18,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api/', views.StudentView.as_view()),
     path('api/<int:id>/', views.StudentView.as_view()),
+    path('users/', views.UserView.as_view(queryset=User.objects.all(), serializer_class=UserSerializer), name='user-list')
 ]

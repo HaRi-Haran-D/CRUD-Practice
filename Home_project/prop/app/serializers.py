@@ -12,3 +12,8 @@ class DataBaseSerializer(ModelSerializer):
     class Meta:
         model = DataBase
         fields = ['title', 'description']
+
+class UserSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
