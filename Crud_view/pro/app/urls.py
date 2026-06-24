@@ -12,4 +12,7 @@ urlpatterns = [
 
     path('api/', views.EmployeeView.as_view()),
     path('api/<int:id>/', views.EmployeeView.as_view()),
+    path('decor/', views.create_post_data),
+    path('decor/<int:id>/', views.update_delete_data),
+
 ]

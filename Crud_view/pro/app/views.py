@@ -52,6 +52,7 @@
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from .models import *
 from .serializers import *
 
@@ -99,3 +100,49 @@ class EmployeeView(APIView):
         employee = Employee.objects.get(id=id)
         employee.delete()
         return Response("Employee Deleted")
+
+
+
+@api_view(["GET","POST"])
+def create_post_data(request):
+
+    if request.method == "GET":
+        detail = Details.objects.all()
+        serializer = DetailsSerializer(detail, many=True)
+        return Response(serializer.data)
+
+
+    elif request.method == "POST":
+        serializer = DetailsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("New Data Added")
+        return Response(serializer.errors)
+
+
+
+@api_view(["GET","PUT","PATCH","DELETE"])
+def update_delete_data(request, id):
+    detail = Details.objects.get(id=id)
+
+    if request.method == 'GET':
+        serializer = DetailsSerializer(detail)
+        return Response(serializer.data)
+    
+    elif request.method == "PUT":
+        serializer = DetailsSerializer(detail, request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Data Updated")
+        return Response(serializer.errors)
+    
+    elif request.method == "PATCH":
+        serializer = DetailsSerializer(detail, request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Data Updated")
+        return Response(serializer.errors)
+    
+    elif request.method == "DELETE":
+        detail.delete()
+        return Response("Data Deleted")

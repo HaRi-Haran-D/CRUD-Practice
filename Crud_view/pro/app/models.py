@@ -12,3 +12,8 @@ class Employee(models.Model):
     
     # def get_absolute_url(self):
     #     return reverse('app:home')
+
+
+class Details(models.Model):
+    address = models.TextField()
+    contact = models.CharField(max_length=10)
