@@ -68,6 +68,7 @@ class EmployeeView(APIView):
             serializer = EmployeeSerializer(employee)
             return Response(serializer.data)
 
+
     def post(self, request):
         employee = EmployeeSerializer(data=request.data)
         if employee.is_valid():
@@ -76,4 +77,25 @@ class EmployeeView(APIView):
         return Response(employee.errors)
 
 
-    
+    def put(self, request, id):
+        employee = Employee.objects.get(id=id)
+        serializer = EmployeeSerializer(employee, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("New Data Added")
+        return Response(serializer.errors)
+
+
+    def patch(self,request,id):
+        employee = Employee.objects.get(id=id)
+        serializer = EmployeeSerializer(employee, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("New Data Added")
+        return Response(serializer.errors)
+
+
+    def delete(self, request, id):
+        employee = Employee.objects.get(id=id)
+        employee.delete()
+        return Response("Employee Deleted")
