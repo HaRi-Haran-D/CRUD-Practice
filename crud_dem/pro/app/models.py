@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Student(models.Model):
     name = models.CharField(max_length=50)
@@ -8,3 +9,10 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class Task(models.Model):
+    student_ref = models.ForeignKey(Student, related_name='tasks', null=True, on_delete=models.CASCADE)
+    task_name = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)

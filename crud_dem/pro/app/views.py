@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 from .forms import StudentForm
 from .models import Student
@@ -45,11 +46,11 @@ class StudentView(APIView):
     def get(self, request, id=None):
         if id == None:
             student = Student.objects.all()
-            serializer = StudentSerializer(student, many=True)
+            serializer = StudentTaskSerializer(student, many=True)
             return Response(serializer.data)
         else:
             student = Student.objects.get(id=id)
-            serializer = StudentSerializer(student)
+            serializer = StudentTaskSerializer(student)
             return Response(serializer.data)
 
     def post(self, request):
@@ -81,3 +82,17 @@ class StudentView(APIView):
         student = Student.objects.get(id=id)
         student.delete()
         return Response("Student Deleted")
+
+
+class StudentTaskView(APIView):
+
+    def get(self, request):
+        student = Student.objects.all()
+        serializer = StudentSerializer(student, many=True)
+        return Response(serializer.data)
+
+
+
+class TaskView(ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer

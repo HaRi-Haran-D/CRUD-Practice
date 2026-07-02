@@ -1,6 +1,9 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from . import views
-app_name = 'app'
+
+router = DefaultRouter()
+router.register(r'viewset', views.StudentViewSet)
 
 urlpatterns = [
     # path('', views.home, name='home'),
@@ -11,6 +14,14 @@ urlpatterns = [
     # path('delete/<int:pk>/', views.DeleteStudent.as_view(), name='delete'),
 
 
+    #Viewset
+    path('', include(router.urls)),
+
+    #apiview
     path('api/', views.StudentView.as_view()),
     path('api/<int:id>/', views.StudentView.as_view()),
+    path('apiview/', views.create_get_data),
+    path('apiview/<int:id>/', views.get_update_delete_by_id),
+    path('gene/', views.StudentGenerics.as_view()),
+    path('gene/<int:pk>/', views.StudentGenericsByID.as_view()),
 ]
