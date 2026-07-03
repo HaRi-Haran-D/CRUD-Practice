@@ -8,5 +8,7 @@ urlpatterns = [
     # path('delete/<int:item_id>/', views.delete, name='delete')
 
     path('', views.StudentAPIView.as_view()),
-    path('<int:id>/', views.StudentAPIView.as_view())
+    path('<int:id>/', views.StudentAPIView.as_view()),
+    path('teach/', views.create_get_view),
+    path('teach/<int:id>/', views.get_update_delete_data),
 ]

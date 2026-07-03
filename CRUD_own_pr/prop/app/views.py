@@ -116,3 +116,47 @@ class StudentAPIView(APIView):
         student = Student.objects.get(id=id)
         student.delete()
         return Response("Student Deleted")
+
+
+
+@api_view(["GET","POST"])
+def create_get_view(request):
+
+    if request.method == "POST":
+        teach = TeacherSerializer(data=request.data)
+        if teach.is_valid():
+            teach.save()
+            return Response("Teacher Added")
+        return Response(teach.errors)
+
+    elif request.method == "GET":
+        teach = Teacher.objects.all()
+        serializer = TeacherSerializer(teach, many=True)
+        return Response(serializer.data)
+
+
+@api_view(["GET", "PUT", "PATCH", "DELETE"])
+def get_update_delete_data(request, id):
+    teach = Teacher.objects.get(id=id)
+
+    if request.method == "GET":
+        serializer = TeacherSerializer(teach)
+        return Response(serializer.data)
+
+    elif request.method == "PUT":
+        serializer = TeacherSerializer(teach, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Teacher Updated")
+        return Response(serializer.errors)
+
+    elif request.method == "PATCH":
+        serializer = TeacherSerializer(teach, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Teacher Updated")
+        return Response(serializer.errors)
+
+    elif request.method == "DELETE":
+        teach.delete()
+        return Response("Teacher Deleted")
