@@ -35,3 +35,37 @@ def deleteproduct(request,id):
         product.delete()
         return redirect('app_folder:product_list')
     return render(request, 'app_folder/delete_product.html')
+
+
+
+
+
+
+
+
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import *
+
+
+class ProductAPI(APIView):
+
+    def post(self, request):
+        product = ProductSerializer(data=request.data)
+        if product.is_valid():
+            product.save()
+            return Response("New Product Added")
+        return Response(product.errors)
+    
+    def get(self, request, id=None):
+        if id==None:
+            product = ProductModel.objects.all()
+            serializer = ProductSerializer(product, many=True)
+            return Response(serializer.data)
+        else:
+            product = ProductModel.objects.get(id=id)
+            serializer = ProductSerializer(product)
+            return Response(serializer.data)
+    
+    # def put(self, request, id):
