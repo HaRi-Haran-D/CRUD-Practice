@@ -68,4 +68,23 @@ class ProductAPI(APIView):
             serializer = ProductSerializer(product)
             return Response(serializer.data)
     
-    # def put(self, request, id):
+    def put(self, request, id):
+        product = ProductModel.objects.get(id=id)
+        serializer = ProductSerializer(product, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Product Updated")
+        return Response(serializer.errors)
+
+    def patch(self, request, id):
+        product = ProductModel.objects.get(id=id)
+        serializer = ProductSerializer(product, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Product Updated")
+        return Response(serializer.errors)
+    
+    def delete(self, request, id):
+        product = ProductModel.objects.get(id=id)
+        product.delete()
+        return Response("Product Deleted")
