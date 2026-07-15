@@ -46,10 +46,12 @@ def deleteproduct(request,id):
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 from .serializers import *
 
 
 class ProductAPI(APIView):
+    # permission_classes = [IsAuthenticated]
 
     def post(self, request):
         product = ProductSerializer(data=request.data)
@@ -57,7 +59,7 @@ class ProductAPI(APIView):
             product.save()
             return Response("New Product Added")
         return Response(product.errors)
-    
+
     def get(self, request, id=None):
         if id==None:
             product = ProductModel.objects.all()
@@ -67,7 +69,7 @@ class ProductAPI(APIView):
             product = ProductModel.objects.get(id=id)
             serializer = ProductSerializer(product)
             return Response(serializer.data)
-    
+
     def put(self, request, id):
         product = ProductModel.objects.get(id=id)
         serializer = ProductSerializer(product, partial=True)
@@ -83,8 +85,11 @@ class ProductAPI(APIView):
             serializer.save()
             return Response("Product Updated")
         return Response(serializer.errors)
-    
+
     def delete(self, request, id):
         product = ProductModel.objects.get(id=id)
         product.delete()
         return Response("Product Deleted")
+
+
+
