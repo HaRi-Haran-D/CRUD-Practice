@@ -26,6 +26,7 @@ class StudAPI(APIView):
             return Response("New Student Added")
         return Response(student.errors)
 
+
 class StudAPIByID(APIView):
     
     def get(self, request, id):

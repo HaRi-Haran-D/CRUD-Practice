@@ -6,6 +6,7 @@ from .models import Company
 from .forms import CompanyForm
 from .serializers import CompanySerializer
 
+
 # Create your views here.
 class CompanyAPI(APIView):
     def get(self, request):
@@ -48,6 +49,10 @@ class CompanyAPIByID(APIView):
         emp=Company.objects.get(id=id)
         emp.delete()
         return Response("Employee Has been Deleted")
+
+
+
+
 
 
 
